@@ -20,7 +20,7 @@ Para uma versão online criei um [seeder](src/setup/seeder.js) para povoar uma c
   - PASSWORD: Ep9M8bzgGmh2yYFQ
 
 ### Exemplo de retorno
-```json
+```javascript
 {
   _id: 600f0a6eacb8baee443527b2,
   'SUBSTÂNCIA': '21-ACETATO DE DEXAMETASONA;CLOTRIMAZOL',
