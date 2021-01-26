@@ -19,6 +19,26 @@ Para uma versão online criei um [seeder](src/setup/seeder.js) para povoar uma c
   - USERNAME: anvisa_med_price
   - PASSWORD: Ep9M8bzgGmh2yYFQ
 
+### Steps to execute 💨
+
+First of all install all the packages:
+
+```bash
+npm i
+```
+
+Then you can run it on dev mode watching for file changes:
+
+```bash
+npm run dev
+```
+
+or, to run it for final use you can run:
+
+```bash
+npm start
+```
+
 ### Exemplo de retorno
 ```javascript
 {
