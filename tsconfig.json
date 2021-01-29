@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
-    /* Enable incremental compilation */
-    "target": "ES2019", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
-    "module": "commonjs", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+    "target": "es6",
+    "module": "commonjs",
     "lib": [
       "ES6"
-    ], /* Specify library files to be included in the compilation. */
+    ],
     "declaration": true,
-    "allowJs": true, /* Allow javascript files to be compiled. */
-    "outDir": "./build", /* Redirect output structure to the directory. */
-    // "rootDir": "./src", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-    "removeComments": true, /* Do not emit comments to output. */
-    "baseUrl": ".",
+    "allowJs": true,
+    "outDir": "./build",
+    "removeComments": true,
+    // "baseUrl": ".",
+    "rootDir": "src",
     "typeRoots": [
-      "./node_modules/@types",
-      "./src/@types"
-    ], /* List of folders to include type definitions from. */
-    "esModuleInterop": true, /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
-    "experimentalDecorators": true, /* Enables experimental support for ES7 decorators. */
-    "emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
-    "skipLibCheck": true, /* Skip type checking of declaration files. */
-    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
-  }
+    "src/@types/*.d.ts",
+    "node_modules/@types"
+  ],
+  "esModuleInterop": true,
+  "experimentalDecorators": true,
+  "emitDecoratorMetadata": true,
+  "skipLibCheck": true,
+  "forceConsistentCasingInFileNames": true
+},
+"include": ["src/**/*"],
+"exclude": ["node_modules", "**/*.spec.ts"]
 }
