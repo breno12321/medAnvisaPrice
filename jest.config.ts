@@ -29,6 +29,7 @@ export default {
     '/node_modules/',
     // 'src/index.js',
     '/__test__/*',
+    '/src/setup'
   ],
 
   // An array of directory names to be searched recursively up from the requiring module's location

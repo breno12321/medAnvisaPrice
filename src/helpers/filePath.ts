@@ -1,3 +1,3 @@
 import path from 'path';
 
-export default (dir: string) => path.resolve(__dirname, dir);
+export const filePath =  (dir: string): string => path.resolve(__dirname, dir);
