@@ -1,4 +1,4 @@
-import localAnvisaMedData from "./components/localAnvisaMedData";
+import { findFiltered } from "./components/localAnvisaMedData";
 
 enum EFilters {
   SUBSTÂNCIA = 'SUBSTÂNCIA',
@@ -43,5 +43,4 @@ enum EFilters {
   TARJA = 'TARJA',
 }
 
-export const medAnvisaPrice = (value: string, filter: EFilters):Promise<IMedication[]> => localAnvisaMedData(value, filter);
-
+export default (filter: EFilters, value: string):Promise<IMedication[]> => findFiltered(value, filter);

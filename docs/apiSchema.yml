@@ -1,12 +1,219 @@
-openapi: "3.0.2"
+openapi: "3.0.0"
 info:
-  title: API Title
+  title: Anvisa Medication price
   version: "1.0"
+  description: |
+    <img src="https://csp.qualisaude.telessaude.ufrn.br/static/images/logo_anvisa_topo.png" />
+    Simple API for fetching Anvisa medications and their respective price.
+    <br/>
+    OBS Every request has 1hour client side caching
+    <br/>
+    <strong>THIS API IS NOT OFFICIAL<strong/>
 servers:
-  - url: https://api.server.test/v1
+  - url: http://localhost:3000
+
 paths:
-  /test:
+  /medication:
     get:
+      summary: Route for getting filtered medication requests
+      tags:
+        - "Medication"
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            enum:
+              - SUBSTÂNCIA
+              - CNPJ
+              - LABORATÓRIO
+              - "CÓDIGO GGREM"
+              - REGISTRO
+              - "EAN 1"
+              - "EAN 2"
+              - "EAN 3"
+              - PRODUTO
+              - APRESENTAÇÃO
+              - "CLASSE TERAPÊUTICA"
+              - "TIPO DE PRODUTO (STATUS DO PRODUTO)"
+              - "REGIME DE PREÇO"
+              - "PF Sem Impostos"
+              - "PF 0%"
+              - "PF 12%"
+              - "PF 17%"
+              - "PF 17% ALC"
+              - "PF 17,5%"
+              - "PF 17,5% ALC"
+              - "PF 18%"
+              - "PF 18% ALC"
+              - "PF 20%"
+              - "PMC 0%"
+              - "PMC 12%"
+              - "PMC 17%"
+              - "PMC 17% ALC"
+              - "PMC 17,5%"
+              - "PMC 17,5% ALC"
+              - "PMC 18%"
+              - "PMC 18% ALC"
+              - "PMC 20%"
+              - "RESTRIÇÃO HOSPITALAR"
+              - CAP
+              - "CONFAZ 87"
+              - "ICMS 0%"
+              - "ANÁLISE RECURSAL"
+              - "LISTA DE CONCESSÃO DE CRÉDITO TRIBUTÁRIO (PIS/COFINS)"
+              - "COMERCIALIZAÇÃO 2019"
+          description: Pass the filter parameter you want to filter by
+        - in: query
+          name: value
+          description: The value for the filter
       responses:
         "200":
-          description: OK
+          $ref: "#/components/responses/MedicationResponse"
+components:
+  schemas:
+    Medication:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 600f0a6eacb8baee443527b9
+        SUBSTÂNCIA:
+          type: string
+          example: ABEMACICLIBE
+        CNPJ:
+          type: string
+          example: 43.940.618/0001-44
+        LABORATÓRIO:
+          type: string
+          example: ELI LILLY DO BRASIL LTDA
+        "CÓDIGO GGREM":
+          type: string
+          example: 507619060022002
+        REGISTRO:
+          type: string
+          example: 1126001990026
+        "EAN 1":
+          type: string
+          example: 7896382708459
+        "EAN 2":
+          type: string
+          example: "-"
+        "EAN 3":
+          type: string
+          example: "-"
+        PRODUTO:
+          type: string
+          example: "VERZENIOS"
+        APRESENTAÇÃO:
+          type: string
+          example: "50 MG COM REV CT BL AL AL X 60"
+        "CLASSE TERAPÊUTICA":
+          type: string
+          example: "L1H - INIBIDORES DE PROTEINA QUINASE"
+        "TIPO DE PRODUTO (STATUS DO PRODUTO)":
+          type: string
+          example: "Novo"
+        "REGIME DE PREÇO":
+          type: string
+          example: "Regulado"
+        "PF Sem Impostos":
+          type: string
+          example: 4155,68"
+        "PF 0%":
+          type: string
+          example: 4654,36"
+        "PF 12%":
+          type: string
+          example: "5378,52"
+        "PF 17%":
+          type: string
+          example: "5751,52"
+        "PF 17% ALC":
+          type: string
+          example: 5006,84"
+        "PF 17,5%":
+          type: string
+          example: 5791,69"
+        "PF 17,5% ALC":
+          type: string
+          example: "5037,19"
+        "PF 18%":
+          type: string
+          example: "5832,43"
+        "PF 18% ALC":
+          type: string
+          example: "5067,90"
+        "PF 20%":
+          type: string
+          example: "6001,29"
+        "PMC 0%":
+          type: string
+          example: "6243,66"
+        "PMC 12%":
+          type: string
+          example: "7184,54"
+        "PMC 17%":
+          type: string
+          example: 7666,34"
+        "PMC 17% ALC":
+          type: string
+          example: "6921,66"
+        "PMC 17,5%":
+          type: string
+          example: "7718,12"
+        "PMC 17,5% ALC":
+          type: string
+          example: "6963,62"
+        "PMC 18%":
+          type: string
+          example: "7770,60"
+        "PMC 18% ALC":
+          type: string
+          example: "7006,07"
+        "PMC 20%":
+          type: string
+          example: "7987,92"
+        "RESTRIÇÃO HOSPITALAR":
+          type: string
+          example: Não
+        CAP:
+          type: string
+          example: Não
+        "CONFAZ 87":
+          type: string
+          example: Não
+        "ICMS 0%":
+          type: string
+          example: Não
+        "ANÁLISE RECURSAL":
+          type: string
+          example: ""
+        "LISTA DE CONCESSÃO DE CRÉDITO TRIBUTÁRIO (PIS/COFINS)":
+          type: string
+          example: "Negativa"
+        "COMERCIALIZAÇÃO 2019":
+          type: string
+          example: "Não"
+        TARJA:
+          type: string
+          example: "Tarja Vermelha(*)"
+  responses:
+    MedicationResponse:
+      description: Success response from medication API
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "ok"
+              rows:
+                type: integer
+                example: 2
+                description: Number of rows that matched the search
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Medication"

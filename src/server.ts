@@ -1,15 +1,18 @@
 import express from 'express';
 
 import dotenv from 'dotenv';
-import localAnvisaMedData from './components/localAnvisaMedData';
+import debug from 'debug';
+import { findMedController } from './components/localAnvisaMedData';
+import cors from 'cors';
+import helmet from 'helmet';
+import redoc from 'redoc-express'
+import filePath from './helpers/filePath';
 
 dotenv.config();
-
+console.log(filePath('../public/docs.html'))
 express()
+  .use(cors())
+  .use(helmet())
   .get('/', (_req, res) => res.send({ purposeInLife: 'Provide ANVISA medications listing and price' }))
-  .get('/medication', async (req, res) => {
-    const { filter, value } = req.query;
-    const med = await localAnvisaMedData(value as string, filter as string);
-    res.json({ status: 'ok', rows: med.length, data: med });
-  })
-  .listen(process.env.PORT || 4000, () => console.log(`Listening on port ${process.env.PORT || 4000}`));
+  .get('/medication', findMedController)
+  .listen(process.env.PORT || 4000, () => debug('API: MAIN')(`Listening on port ${process.env.PORT || 4000}`));
