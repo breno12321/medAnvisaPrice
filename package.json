@@ -2,7 +2,7 @@
   "name": "med_price_anvisa",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Esse repositório é responsável por disponibilizar em forma de JSON/API Rest a base de medicamentos registrados na anvisa assim como seu preço respectivo no mercado.",
   "directories": {
     "doc": "docs"
