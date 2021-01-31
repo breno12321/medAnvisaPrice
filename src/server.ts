@@ -5,11 +5,9 @@ import debug from 'debug';
 import { findMedController } from './components/localAnvisaMedData';
 import cors from 'cors';
 import helmet from 'helmet';
-import redoc from 'redoc-express'
-import filePath from './helpers/filePath';
 
 dotenv.config();
-console.log(filePath('../public/docs.html'))
+
 express()
   .use(cors())
   .use(helmet())
