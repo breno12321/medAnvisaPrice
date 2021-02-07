@@ -1,4 +1,4 @@
-import { findFiltered } from "./components/localAnvisaMedData";
+import { findFiltered } from "./components/AnvisaMedData";
 
 enum EFilters {
   SUBSTÂNCIA = 'SUBSTÂNCIA',
@@ -43,4 +43,4 @@ enum EFilters {
   TARJA = 'TARJA',
 }
 
-export default (filter: EFilters, value: string):Promise<IMedication[]> => findFiltered(value, filter);
+export default (filter: EFilters, value: string): Promise<IMedication[]> => findFiltered(value, filter);

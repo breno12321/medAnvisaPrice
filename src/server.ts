@@ -2,7 +2,7 @@ import express from 'express';
 
 import dotenv from 'dotenv';
 import debug from 'debug';
-import { findMedController } from './components/localAnvisaMedData';
+import { findMedController } from './components/AnvisaMedData';
 import cors from 'cors';
 import helmet from 'helmet';
 
