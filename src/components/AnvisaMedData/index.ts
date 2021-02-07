@@ -1,12 +1,11 @@
-
 import {
   findMedController
 } from './localAnvisaMed.controller';
-import { 
+import {
   findFiltered
-} from './localAnvisaMed.service'
+} from './localAnvisaMed.service';
 
-export { 
-  findFiltered, 
+export {
+  findFiltered,
   findMedController
 };

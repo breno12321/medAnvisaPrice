@@ -1,4 +1,3 @@
-import { MongoClient } from 'mongodb';
 import MongoRepository from './db.repository';
 
 const findFilteredMongo = (
@@ -7,7 +6,7 @@ const findFilteredMongo = (
 ): Promise<IMedication[]> => new Promise(async (resolve, reject) => {
   try {
     const mongoRepository = await MongoRepository();
-    const res = mongoRepository.find({[param]: value}).toArray();
+    const res = mongoRepository.find({ [param]: value }).toArray();
     resolve(res);
   } catch (error) {
     reject(error);

@@ -14,6 +14,7 @@ export default {
 
   transformIgnorePatterns: [
     '/node_modules/',
+    '/src/@types'
   ],
 
   collectCoverageFrom: ['src/**/*.{ts,js}'],
