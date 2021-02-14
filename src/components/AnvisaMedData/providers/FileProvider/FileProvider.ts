@@ -15,5 +15,3 @@ const findFilteredLocal = (
 });
 
 export { findFilteredLocal };
-
-findFilteredLocal().then(data => console.log(data.length))
