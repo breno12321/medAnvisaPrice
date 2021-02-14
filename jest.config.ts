@@ -14,6 +14,7 @@ export default {
 
   transformIgnorePatterns: [
     '/node_modules/',
+    '/src/@types'
   ],
 
   collectCoverageFrom: ['src/**/*.{ts,js}'],
@@ -29,6 +30,8 @@ export default {
     '/node_modules/',
     // 'src/index.js',
     '/__test__/*',
+    '/src/setup',
+    '/src/server.ts'
   ],
 
   // An array of directory names to be searched recursively up from the requiring module's location
